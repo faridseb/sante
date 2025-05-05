@@ -2,14 +2,11 @@
 
 include "connect.php" ;
 
-if(isset($_POST['okay'])){
-    
+$requete = "SELECT * FROM docteurs ";
 
+$reponse = $bdd->query($requete);
 
-
-
-
-}
+$utilisateurs = $reponse->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -198,18 +195,20 @@ if(isset($_POST['okay'])){
     <div class="docteur">
         <h1><span>NOS</span> DOCTEURS</h1>
         <div class="BOXES">
+            <?php foreach ($utilisateurs as $utilisateur) {?> 
             <div class="box">
-                <img src="d1.jpg" alt="">
-                <p>JOE HART</p>
-                <p style="font-weight: 900;">Docteur Generaliste</p>
+                <img src="photo/<?=$utilisateur['img_doc']?>" alt="">
+                <p><?=$utilisateur['prenom_doc']?> <?$utilisateur['prenom_doc']?></p>
+                <p style="font-weight: 900;">Specialite <?=$utilisateur['specialite_doc']?></p>
                 <ul>
                     <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
                 </ul>
             </div>
-            <div class="box">
-                <img src="d2.jpeg" alt="">
+            <?php }?>
+            <!-- <div class="box">
+                <img src="" alt="">
                 <p>FELICIO CHETTE</p>
                 <p style="font-weight: 900;">Docteur Consultant</p>
                 <ul>
@@ -219,7 +218,7 @@ if(isset($_POST['okay'])){
                 </ul>
             </div>
             <div class="box">
-                <img src="d3.avif" alt="">
+                <img src="" alt="">
                 <p>CHACI DEFTI</p>
                 <p style="font-weight: 900;">Infirmier </p>
                 <ul>
@@ -229,7 +228,7 @@ if(isset($_POST['okay'])){
                 </ul>
             </div>
             <div class="box">
-                <img src="d5.png" alt="">
+                <img src="" alt="">
                 <p>KING NASIR</p>
                 <p style="font-weight: 900;">Grand docteur</p>
                 <ul>
@@ -239,7 +238,7 @@ if(isset($_POST['okay'])){
                 </ul>
             </div>
             <div class="box">
-                <img src="d6.jpg" alt="">
+                <img src="" alt="">
                 <p>JOHNY SENS</p>
                 <p style="font-weight: 900;">Tres tres bon docteur</p>
                 <ul>
@@ -249,7 +248,7 @@ if(isset($_POST['okay'])){
                 </ul>
             </div>
             <div class="box">
-                <img src="d6.jpg" alt="">
+                <img src="" alt="">
                 <p>JONHY SENS</p>
                 <p style="font-weight: 900;">Tres tres bon docteur</p>
                 <ul>
@@ -257,7 +256,7 @@ if(isset($_POST['okay'])){
                     <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
     <footer id="footer">

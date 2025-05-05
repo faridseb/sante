@@ -132,7 +132,7 @@ table i{
                                     <td><?=$rende['date_rend']?></td>
                                     <td><?=$rende['motif']?></td>
                                     <td><a href="diagno.php?id=<?=$rende['id_rend']?>" class="diagno">Diagnostic</a></td>
-                                    <td><a href="diagno.php?id=<?=$rende['id_rend']?>"><i class="fa-solid fa-trash" style="font-size:25px;"></i></a></td>
+                                    <td><a href="deleteRend.php?id=<?=$rende['id_rend']?>"><i class="fa-solid fa-trash" style="font-size:25px;"></i></a></td>
                                 </tr>
                                 <?php  }?>
                             </tbody>

@@ -156,7 +156,7 @@ if(isset($_POST['okay'])){
                     
                 <?php foreach($utilisateurs as $utilisateur) { ?>
                     <tr>
-                    <td><img src="photo/<?=$utilisateur['img_doc']?>" alt=""></td>
+                    <td><img src="../photo/<?=$utilisateur['img_doc']?>" alt=""></td>
                     <td><?=$utilisateur['nom_doc']?></td>
                     <td><?=$utilisateur['prenom_doc']?></td>
                     <td><?=$utilisateur['specialite_doc']?></td>

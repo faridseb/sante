@@ -4,7 +4,7 @@ include "connect.php" ;
 
 $id_doc = $_SESSION['docteurs']['id'] ;
 
-$requete = "SELECT * FROM rendez_vous JOIN patient ON rendez_vous.id_patient = patient.id_patient  WHERE id_doc=$id_doc";
+$requete = "SELECT * FROM history WHERE id_doc=$id_doc";
 //$requete = "SELECT * FROM rendez_vous JOIN patient ON rendez_vous.id_patient = patient.id_patient JOIN ON diagnostic ON rendez_vous.id_rend=diagnostic.id_rend WHERE id_doc=1";
 $resulat = $bdd->query($requete);
 $rendez = $resulat->fetchAll(PDO::FETCH_ASSOC);
@@ -104,7 +104,7 @@ table i{
         </nav>
     </header>
     <div class="cont">
-        <h1>HISTORIQUE RENDEZ-VOUS</h1>
+        <h1 style="color:black;">HISTORIQUE RENDEZ-VOUS</h1>
         <table>
                 <thead>
                     <tr>
@@ -118,8 +118,8 @@ table i{
                             <tbody>
                                 <?php foreach($rendez as $rende ){ ?>
                                 <tr>
-                                    <td><?=$rende['nom_patient']?> <?=$rende['prenom_patient']?></td>
-                                    <td><?=$rende['date_rend']?></td>
+                                    <td><?=$rende['nom']?> <?=$rende['prenom']?></td>
+                                    <td><?=$rende['date_hist']?></td>
                                     <td><?=$rende['motif']?></td>
                                     
                                 </tr>
