@@ -1,0 +1,319 @@
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,800&family=Montserrat:ital,wght@1,443&family=Sour+Gummy:wdth,wght@100..125,250&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    /* font-family: "Comfortaa", sans-serif;
+     */
+    /* font-family: "Playwrite IT Moderna", cursive;*/
+    font-family: "Montserrat", sans-serif; 
+    box-sizing: border-box;
+    list-style: none;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+header {
+    max-width: 1300px;
+    margin: auto;
+}
+
+
+header .navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+header .navbar .Parcourir{
+    background-color: #07FB23;
+    padding: 7px;
+    border-radius: 15px;
+}
+
+header .navbar .Parcourir:hover{
+    transition: all ease .3s ;
+    scale: 1.1;
+}
+header .navbar .logo{
+    font-size: 40px;
+    margin: 10px;
+}
+
+
+header .navbar .navlinks ul li a , .logo{
+    color: black;
+}
+
+
+header .navbar .navlinks ul li a:hover{
+    border-bottom: 4px solid #07FB23;
+    transition: .3s all ease;
+}
+
+
+header .navbar .navlinks ul{
+    display: flex;
+}
+
+header .navbar .navlinks ul li{
+    margin: 30px;
+}
+
+.conten1{
+    background-image: url(enfant-4-ans-devrait-savoir.jpg);
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 1350px;
+    margin: auto;
+    /*background-image: linear-gradient(to left ,white,#07FB23);*/
+
+}
+
+.conten1 .text p{
+    color: white;
+    font-size: 35px;
+    font-weight: 900;
+
+}
+
+
+.conten1 .text{
+    position: relative;
+    top: 40%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.conten1 .text button{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 10px;
+}
+
+.conten1 .text button a{
+    color: black;
+}
+
+.conten1 .text button:hover{
+    letter-spacing: 5px;
+    transition: .5s;
+    background-color:  #07FB23;
+}
+
+h2{
+    border-bottom: 1px black solid;
+    font-size: 39px;
+    text-align: center;
+    max-width: 500px;
+    margin: auto ;
+    padding: 10px;
+}
+
+
+.nutrition , .bien , .complement {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.nutrition,.bien{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.nutrition .box,.bien .box{
+    background-color: #07FB23;
+    padding: 20px;
+    border-radius: 13px;
+    margin-top: 20px;
+}
+
+.nutrition .box1 img{
+    width: 50%;
+    margin-left:100px;
+}
+
+
+.bien .box1 img{
+    width: 80%;
+    margin-left: 50px;
+}
+
+.formulaire{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.formulaire .ensemble{
+    width: 550px;
+
+}
+
+.formulaire .ensemble .box input , textarea{
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    background-color: #f2f2f2;
+}
+
+.formulaire .ensemble .box input[type="submit"]{
+    background-color: #07FB23;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.formulaire .ensemble .box input[type="submit"]:hover{
+    scale: 1.1;
+    transition: all ease .3s;
+    background-color: black;
+}
+
+.complement img{
+    width: 100%;
+    border-radius: 14px;
+    margin: 10px;
+}
+.complement .boxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.complement .boxes .box1{
+    margin: 20px;
+}
+
+
+.complement .box, .complement .box1{
+    background-color: #07FB23;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+
+.complement p{
+    margin: 20px;
+}
+
+footer{
+    background-color: #07FB23;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+}
+
+footer a{
+    color:black;
+}
+footer h3{
+    border-bottom: 1px black solid;
+    font-weight: bold;
+}
+
+footer .sec1 ul{
+    display: flex;
+}
+
+
+footer .sec1 i{
+    background-color: black;
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+}
+
+footer .sec1 ul li{
+    margin: 10px 30px;
+}
+
+.fa-bars{
+    position: relative;
+    top: 20px;
+    font-size: 35px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+}
+.fa-heart{
+    position: relative;
+    top: 20px;
+    font-size: 35px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width : 900px) {
+    .conten1{
+        background-image: url(enfant-4-ans-devrait-savoir.jpg);
+        background-size: 100% 100%;
+    }
+    header .navbar .navlinks{
+        position: absolute;
+        backdrop-filter: blur(45px);
+        width: 100%;
+        left: -100%;
+        transition: all ease .3s;
+    }
+    header .navbar .navlinks.active{
+        left: 0;
+    }
+    header .navbar .navlinks ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh
+    }
+
+    .nutrition , .bien , .complement  {
+        display: block;
+        max-width: 500px;
+
+    }
+    .conten1 .text{
+        left:7%;
+    }
+    .complement .boxes{
+        display: block;
+    }
+    footer{
+        display: block;
+
+    }
+    .fa-bars{
+        display: block;
+    }
+    .fa-heart{
+        display: none;
+    }
+}

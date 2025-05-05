@@ -10,11 +10,7 @@ include "connect.php";
 
         
         if(!empty($email) AND !empty($mdp)){
-            if($email == "seboufarid43@gmail.com" && $_POST['mdp']=='admin'){
-                header("location:loginD.php");
-            }
-            else{
-                $requete = $bdd->prepare("SELECT * FROM patient WHERE  email=? AND mdp =?");
+            $requete = $bdd->prepare("SELECT * FROM docteurs WHERE  email=? AND mdp =?");
             $requete->execute(
                 array($email,$mdp)
             );
@@ -22,10 +18,10 @@ include "connect.php";
             
             if( $reponse > 0){
                 $utilisateur = $requete->fetch(PDO::FETCH_ASSOC);
-                $id = $utilisateur['id_patient'];
-                $nom_user  =  $utilisateur['nom_patient'];
-                $prenom_user  =  $utilisateur['prenom_patient'];
-                $_SESSION['utilisateur'] = [
+                $id = $utilisateur['id_doc'];
+                $nom_user  =  $utilisateur['nom_doc'];
+                $prenom_user  =  $utilisateur['prenom_doc'];
+                $_SESSION['docteurs'] = [
                 "id" => $id,
                 "nom" => $nom_user,
                 "prenom" => $prenom_user,
@@ -33,12 +29,12 @@ include "connect.php";
                 "mdp" => $mdp
                 ];
                 $message = 'COMPTE A BIEN ETE TROUVE' ;
-                header("location:index.php");
+                header("location:docteurs.php");
             }
             else{
-                // $erreur = 'EMAIL OU MOT DE PASSE INCORRECT';
+                $erreur = 'EMAIL OU MOT DE PASSE INCORRECT';
             }
-            }
+            
             
         }
     else{
@@ -80,7 +76,7 @@ include "connect.php";
 <body>
     
     <div class="ensemble">
-        <h1><i class="fa-solid fa-right-from-bracket"></i>CONNECTION</h1>
+        <h1><i class="fa-solid fa-right-from-bracket"></i>LOGIN DOCTEURS</h1>
         <div class="contU">
             <div class="cont">
                 <img src="doctors.jpg" alt="">
@@ -111,7 +107,7 @@ include "connect.php";
                 <div class="box1">
                     <input type="submit" value="Se Connecter" name="ok">
                 </div>
-                <p>Avez vous deja un compte ? <a href="sign.php">Creer un compte</a></p>
+                <p>Avez vous deja un compte ? <a href="signD.php">Creer un compte</a></p>
             </div>
             </form>
         </div>

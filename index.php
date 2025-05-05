@@ -2,40 +2,18 @@
 
 include "connect.php" ;
 
-
-
 if(isset($_POST['okay'])){
-    $id = $_SESSION['utilisateur']['id'];
-    $nom = $_SESSION['utilisateur']['nom'];
-    $prenom = $_SESSION['utilisateur']['prenom'];
-    $email = $_SESSION['utilisateur']['email'];
-    $tel = $_POST['tel'];
-    $date = $_POST['date'];
-    $motif = $_POST['motif'] ;
-    $doc = 1 ;
-    $today = new DateTime();
+    
 
-    if(!empty($tel) AND !empty($date) AND !empty($motif)){
-    if($date < $today){
-        $erreur = "Date impossible a choisir" ;
-    }
-    else{
-        $Docteurs = [
-            ['']
-        ];
-        $requete = $bdd->prepare("INSERT INTO rendez_vous(date_rend,motif,id_patient,id_doc) VALUES (?,?,?,?) ");
-        $requete->execute(
-        array($date,$motif,$id,$doc)
-        );
-    }
-    
-    }
-    
+
+
+
+
 }
 
 
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,6 +37,7 @@ if(isset($_POST['okay'])){
                     <li class="Parcourir"><a href="#form" >Rendez-vous</a></li>
                     <!--<li class="login"><a href="login.html"><i class="fa-solid fa-user"></i></a></li>-->
                     <?php if(isset($_SESSION['utilisateur'])) { ?>
+                    <li><a href="diagnostic.php">Diagnostics</a></li>
                     <li>
                         <i class="fa-solid fa-user"></i>
                         <div class="conn" style="background-color: white; padding: 10px;">
@@ -67,6 +46,7 @@ if(isset($_POST['okay'])){
                             <div class="conn1" style="color: black;"><a href="deconnect.php"><i class="fa-solid fa-right-from-bracket"></i>Deconnecter</a></div>
                         </div>
                     </li>
+                    
                     <?php  } else {?>
 
                         <li>
@@ -99,7 +79,7 @@ if(isset($_POST['okay'])){
         <div class="box"><i class="fa-solid fa-user-doctor"></i><br>
             <p style="font-size: 40px;">+ de 100 <br>docteurs</p>
         </div>
-        <div class="box"><i class="fa-solid fa-person"></i><br>
+        <div class="box"><i class="fa-solid fa-syringe"></i><br>
             
             <p style="font-size: 40px;">+ de 100 <br>patients</p>
         </div>
@@ -138,13 +118,12 @@ if(isset($_POST['okay'])){
     <div class="reservation">
         <h1><span>RESERVER</span> MAINTENANT</h1>
         <div class="grand" id="form">
-            <form action="" method="POST">
-                <div class="containers">
-                    <?php
-                        if(isset($erreur)){
-                            echo '<p style= "backdrop-filter: blur(150px); color:red; margin-top: 10px; padding: 7px; text-align: center; font-weight: bold;">'.$erreur.'</p>';
-                        }
-                    ?>
+            <form method="POST" id="loginForm">
+                
+                    
+
+            <div id="containers"></div>
+
                     <div class="box">
                         <label for="">Nom :</label>
                         <?php if(isset($_SESSION['utilisateur'])) { ?>
@@ -158,12 +137,12 @@ if(isset($_POST['okay'])){
                         <?php if(isset($_SESSION['utilisateur'])) { ?>
                         <input type="email" placeholder="EMAIL" value="<?=$_SESSION['utilisateur']['email']?>" name="email" required readonly>
                         <?php }else {?>
-                        <input type="text" placeholder="NOM" name="nom" required >
+                        <input type="email" placeholder="Email" name="email" required >
                         <?php } ?> 
                     </div>
                     <div class="box">
                         <label for="">Telephone :</label>
-                        <input type="tel"  name="tel"  pattern="\+228\d{8}" placeholder="+228xxxxxxxx" required>
+                        <input type="tel"  name="tel" placeholder="+228xxxxxxxx" required>
                     </div>
 
                     <div class="box">
@@ -174,16 +153,21 @@ if(isset($_POST['okay'])){
                         <label for=""> Motif:</label>
                         <select name="motif" id="" required>
                             <option value="Consultation">Consultation</option>
-                            <option value="Conseil">Conseil</option>
+                            <option value="Conseils">Conseil</option>
                             <option value="Soins">Soins</option>
                         </select>
                     </div>
                     <div class="box1">
-                        <input type="submit" name="okay" value="Reserver">
+                    <?php if(isset($_SESSION['utilisateur'])) { ?>
+                        <input type="submit" value="Reserver">
+                        <?php }else {?>
+                        <input type="submit" value="Reserver">
+                        <?php } ?> 
                     </div>
-                </div>
+                
             </form>
             <div class="box" id="boxes"><img src="rendez vous.svg" alt=""></div>
+            
         </div>
     </div>
     <div class="conseil" id="conseil">
@@ -309,6 +293,40 @@ if(isset($_POST['okay'])){
             </ul>
         </div>
     </footer>
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            try {
+                const formData = new FormData(e.target);
+                const response = await fetch('reponse.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                // Afficher la notification
+                const notification = `
+                <p style= "background-color:${data.success ? 'green' : 'red'}; color:white; margin-top: 10px; padding: 7px; text-align: center;">${data.message}</p>
+                `;
+
+                const container = document.getElementById('containers');
+                container.innerHTML = notification;
+                
+
+                if (data.success && data.redirect) {
+                    setTimeout(() => {
+                        window.location.href = data.redirect;
+                    }, 2000);
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

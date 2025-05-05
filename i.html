@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de Santé</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Styles globaux */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+/* En-tête */
+header {
+  background: #4CAF50;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Section principale */
+.hero {
+  background: url('hero.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.hero .btn {
+  background: #4CAF50;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.articles {
+  background: #f4f4f4;
+  padding: 2rem 0;
+}
+
+.articles .article-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.articles article {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  flex: 1;
+  max-width: 300px;
+}
+
+.articles article img {
+  width: 100%;
+  height: auto;
+}
+
+.articles article h3 {
+  color: #4CAF50;
+}
+
+.articles article a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/* Pied de page */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+</style>
+<body>
+  <!-- En-tête -->
+  <header>
+    <div class="container">
+      <h1>Conseils Santé</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Accueil</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#rendez-vous">Rendez-vous</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section principale -->
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <h2>Bienvenue sur notre site dédié à votre santé</h2>
+        <p>Découvrez des articles, prenez rendez-vous avec des professionnels, et bien plus encore.</p>
+        <a href="#articles" class="btn">Explorer les articles</a>
+      </div>
+    </section>
+
+    <section id="articles" class="articles">
+      <div class="container">
+        <h2>Derniers Articles de Santé</h2>
+        <div class="article-list">
+          <article>
+            <img src="image1.jpg" alt="Article 1">
+            <h3>Conseils pour une alimentation équilibrée</h3>
+            <p>Découvrez comment manger sainement au quotidien.</p>
+            <a href="#">Lire plus</a>
+          </article>
+          <article>
+            <img src="image2.jpg" alt="Article 2">
+            <h3>Les bienfaits de l'exercice physique</h3>
+            <p>Apprenez à intégrer le sport dans votre routine.</p>
+            <a href="#">Lire plus</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rendez-vous" class="rendez-vous">
+      <div class="container">
+        <h2>Prendre Rendez-vous</h2>
+        <p>Choisissez un professionnel et planifiez votre rendez-vous en ligne.</p>
+        <a href="rendezvous.html" class="btn">Commencer</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Conseils Santé. Tous droits réservés.</p>
+    </div>
+  </footer>
+</body>
+</html>

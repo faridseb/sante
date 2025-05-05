@@ -11,3 +11,5 @@ button.onclick = () =>{
 }
 
 navlinks.classList = isOpen ?  'fa-solid fa-xmark' : 'fa-solid fa-bars' ;
+
+

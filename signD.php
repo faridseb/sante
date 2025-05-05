@@ -7,14 +7,14 @@ include "connect.php";
         $prenom = htmlspecialchars($_POST['prenom']);
         $email = htmlspecialchars($_POST['email']);
         $mdp = sha1($_POST['mdp']) ;
-        $sexe = $_POST['sexe'];
+        $motif = $_POST['motif'];
 
-        if(!empty($nom) AND !empty($prenom) AND !empty($email) AND !empty($mdp) AND !empty($sexe) ){
+        if(!empty($nom) AND !empty($prenom) AND !empty($email) AND !empty($mdp) AND !empty($motif) ){
                         if($nom == " " or $prenom == " "){
                             $erreur = "LE CHAMP DOIT CONTENIR DES CARACTERE" ;
                         }
                         else{
-                            $reqEmail = $bdd->prepare("SELECT * FROM patient WHERE email = ?");
+                            $reqEmail = $bdd->prepare("SELECT * FROM docteurs WHERE email = ?");
                         $reqEmail->execute(
                             array($email)
                         );
@@ -23,12 +23,12 @@ include "connect.php";
                                     $erreur = "Le mot de passe doit etre compris entre 4 ET 12 caracteres";
                                 }
                                 else{
-                                    $requete = $bdd->prepare("INSERT INTO patient(nom_patient,prenom_patient,sexe,email,mdp) VALUES (?,?,?,?,?)");
+                                    $requete = $bdd->prepare("INSERT INTO docteurs(nom_doc,prenom_doc,specialite_doc,email,mdp) VALUES (?,?,?,?,?)");
                                     $requete->execute(
-                                        array($nom,$prenom,$sexe,$email,$mdp)
+                                        array($nom,$prenom,$motif,$email,$mdp)
                                     );
                                     $message = 'INSCRIPTION REUSSI' ;
-                                    header("location:login.php");
+                                    header("location:loginD.php");
                                 }
                             
                         }
@@ -37,7 +37,7 @@ include "connect.php";
                         }
                         }
                         
-                    }
+    }
 
     else{
         $erreur = 'VEUILLER REMPLIR TOUS LES CHAMPS' ;
@@ -60,27 +60,10 @@ include "connect.php";
     <link rel="stylesheet" href="login.css">
     <title>Sign in</title>
 </head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-    *{
-        margin: 0;
-        padding: 0;
-        /* font-family: "Comfortaa", sans-serif;
-        */
-        /* font-family: "Playwrite IT Moderna", cursive;*/
-        font-family: "Montserrat", sans-serif; 
-        box-sizing: border-box;
-        list-style: none;
-        font-weight: 900;
-        text-decoration: none;
-    }
-</style>
 <body>
     
     <div class="ensemble">
-        <h1> <i class="fa-solid fa-user"></i>INSCRIPTION</h1>
+        <h1> <i class="fa-solid fa-user"></i>INSCRIPTION DOCTEURS</h1>
         <div class="contU">
             
             <form action="" method="POST">
@@ -109,10 +92,11 @@ include "connect.php";
                         <input type="email" placeholder="Email" name="email" required>
                     </div>
                     <div class="box">
-                        <label for="">  Sexe:</label>
-                        <select name="sexe" id="">
-                            <option value="M">Masculin</option>
-                            <option value=" F">Feminin</option>
+                        <label for=""> Specialite:</label>
+                        <select name="motif" id="" required>
+                            <option value="Consultation">Consultation</option>
+                            <option value="Conseils">Conseil</option>
+                            <option value="Soins">Soins</option>
                         </select>
                     </div>
                     <div class="box">
@@ -127,7 +111,7 @@ include "connect.php";
                 
             </form>
             <div class="cont">
-                <img src="Login.png" alt="" style="width: 100%;">
+                <img src="doctors.jpg" alt="" style="margin-top: 200px; width: 100%;">
             </div>
         </div>
     </div>

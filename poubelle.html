@@ -1,0 +1,152 @@
+<h2 data-aos="fade-up">CONACTEZ-NOUS</h2>
+    <form action="" class="formulaire" data-aos="fade-up" id="contact" method="POST">
+        <div class="ensemble" >
+            <div class="box">
+                <label for="">Nom:</label>
+                <input type="text" placeholder="Nom" name="nom" required>
+            </div>
+            <div class="box">
+                <label for="">Prenom:</label>
+                <input type="text" placeholder="Prenom" name="prenom" required>
+            </div>
+            <div class="box">
+                <label for="">Email:</label>
+                <input type="email" placeholder="Email" name="email">
+            </div>
+            <div class="box">
+                <label for="">Message:</label>
+                <textarea name="message" id="" cols="20" rows="5" placeholder="ENTRER VOTRE MESSAGE"></textarea>
+            </div>
+            <div class="box">
+                <input type="submit" value="Envoyer" name="envoyer">
+            </div>
+            je suos de sole de ceque j'aurais pu
+        </div>
+    </form>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="reponse.css">
+    <title>Reponses</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        align-items:center;
+        justify-content :center ;
+        flex-direction:column;
+        /* height:100vh ; */
+    }
+
+    #fa-xmark{
+        display:block;
+    }
+
+
+
+
+</style>
+<body>
+
+<header data-aos="fade-down">
+        <nav class="navbar">
+            <a href="index.php" class="logo"><img src="logo.png" alt=""></a>
+            <div class="navlinks">
+                <ul>
+                    <li><a href="">Acceuil</a></li>
+                    <li><a href="#conseil">Conseils</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                    <li class="Parcourir"><a href="#form" >Rendez-vous</a></li>
+                    <!--<li class="login"><a href="login.html"><i class="fa-solid fa-user"></i></a></li>-->
+                    <?php if(isset($_SESSION['utilisateur'])) { ?>
+                    <li>
+                        <i class="fa-solid fa-user"></i>
+                        <div class="conn" style="background-color: white; padding: 10px;">
+                            <p style="color:black; text-align:center;  font-weight:bold; border-bottom:1px solid black;">Profil</p>
+                            <div class="conn1" style="color: black;"><?=$_SESSION['utilisateur']['nom']?> <?=$_SESSION['utilisateur']['prenom']?></div>
+                            <div class="conn1" style="color: black;"><a href="deconnect.php"><i class="fa-solid fa-right-from-bracket"></i>Deconnecter</a></div>
+                        </div>
+                    </li>
+                    <?php  } else {?>
+
+                        <li>
+                        <i class="fa-solid fa-user"></i>
+                        <div class="conn" style="background-color: white; padding: 10px;">
+                            <p style="color:black; text-align:center;  font-weight:bold; border-bottom:1px solid black;">Profil</p>
+                            <div class="conn1" style="color: black;">Pas de profil</div>
+                            <div class="conn1" style="color: black;"><a href="login.php"><i class="fa-solid fa-right-from-bracket"></i>Se Connecter</a></div>
+                        </div>
+                    </li>
+
+                    <?php } ?>
+                </ul>
+            </div>
+            
+        <i class="fa-solid fa-bars"></i>
+        </nav>
+</header>
+
+
+<?php  if(isset($_SESSION['message'])) { 
+        if($erreur == "RENDEZ VOUS PLACER AVEC SUCCES"){ ?>           
+            <div class="container">
+                <div class="image">
+                <i class="fa-solid fa-check"  style="color:green; font-size:290px;"></i>
+                </div>
+                <div class="reponse">
+                    <h2><?=$erreur?></h2>
+                    <form action="" method="POST">
+                        <a href="index.php">RETOUR A LA PAGE D'ACCEUIL</a>   
+                    </form>
+                </div>
+            </div>        
+        <?php }  else if ($erreur == "DOCTEURS INDISPONIBLE VEUILLEZ REESAYER ULTERIEUREMENT") {?>
+
+        <div class="container">
+            <div class="image">
+                <i class="fa-solid fa-xmark" id="fa-xmark" style="color:red; font-size:290px;"></i>
+            </div>
+            <div class="reponse">
+                <h2 style="color:red; "><?=$erreur?></h2>
+                <form action="" method="POST">
+                    <a href="index.php">RETOUR A LA PAGE D'ACCEUIL</a>   
+                </form>
+            </div>
+        </div>
+            <?php }else if($erreur == "DATE INCOHERANTE !"){ ?>
+            <div class="container">
+                <div class="image">
+                    <i class="fa-solid fa-xmark" id="fa-xmark" style="color:red; font-size:290px;"></i>
+                </div>
+                <div class="reponse">
+                    <h2 style="color:red; "><?=$erreur?></h2>
+                    <form action="" method="POST">
+                        <a href="index.php">RETOUR A LA PAGE D'ACCEUIL</a>   
+                    </form>
+                </div>
+            </div>
+<?php   }}  ?>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
