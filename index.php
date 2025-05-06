@@ -150,7 +150,7 @@ $utilisateurs = $reponse->fetchAll(PDO::FETCH_ASSOC);
                         <label for=""> Motif:</label>
                         <select name="motif" id="" required>
                             <option value="Consultation">Consultation</option>
-                            <option value="Conseils">Conseil</option>
+                            <option value="Conseils">Conseils</option>
                             <option value="Soins">Soins</option>
                         </select>
                     </div>

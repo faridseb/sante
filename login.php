@@ -10,9 +10,12 @@ include "connect.php";
 
         
         if(!empty($email) AND !empty($mdp)){
-            if($email == "seboufarid43@gmail.com" && $_POST['mdp']=='admin'){
+            if($email == "seboufarid43@gmail.com" && $_POST['mdp']=='doctor'){
                 header("location:loginD.php");
             }
+            else if ($email == "seboufarid43@gmail.com" && $_POST['mdp']=='admin') {
+                header("location: Admin/");
+            } 
             else{
                 $requete = $bdd->prepare("SELECT * FROM patient WHERE  email=? AND mdp =?");
             $requete->execute(
@@ -111,7 +114,7 @@ include "connect.php";
                 <div class="box1">
                     <input type="submit" value="Se Connecter" name="ok">
                 </div>
-                <p>Avez vous deja un compte ? <a href="sign.php">Creer un compte</a></p>
+                <p><a href="sign.php">Avez vous deja un compte ? Creer un compte</a></p>
             </div>
             </form>
         </div>

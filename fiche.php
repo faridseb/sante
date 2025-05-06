@@ -167,7 +167,7 @@ $docteurs = $reponse->fetch(PDO::FETCH_ASSOC);
                 <p style="font-size: 80px; text-align: center;"><i class="fa-regular fa-user"></i></p>
                 <p><span style="font-weight: 800; color: black;">Nom & Prenom : </span><?= $_SESSION['fiche']['nom'] .' '. $_SESSION['fiche']['prenom']?></p>
                 <p> <span style="font-weight: 800; color: black ;">Date du Rendez-vous :</span><?= $_SESSION['fiche']['date']?></p>
-                <p> <span style="font-weight: 800; color: black;">Motif : </span><?= $_SESSION['fiche']['date']?></p>
+                <p> <span style="font-weight: 800; color: black;">Motif : </span><?= $_SESSION['fiche']['motif']?></p>
             </div>
             <div class="doc">
                 <img src="d1.jpg" alt="" style="width: 70px; border-radius: 50%;">

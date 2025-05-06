@@ -2,6 +2,8 @@
 session_start();
 $servername = "localhost";
 $database = "testos";
+// $database = "sante";
+
 $username = "root";
 $password = "";
 

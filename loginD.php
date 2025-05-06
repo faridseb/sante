@@ -79,7 +79,7 @@ include "connect.php";
         <h1><i class="fa-solid fa-right-from-bracket"></i>LOGIN DOCTEURS</h1>
         <div class="contU">
             <div class="cont">
-                <img src="doctors.jpg" alt="">
+                <img src="apr.png" alt="">
             </div>
             <form action="" method="POST">
 
@@ -107,7 +107,7 @@ include "connect.php";
                 <div class="box1">
                     <input type="submit" value="Se Connecter" name="ok">
                 </div>
-                <p>Avez vous deja un compte ? <a href="signD.php">Creer un compte</a></p>
+                <p><a href="signD.php">Avez vous deja un compte ? Creer un compte</a></p>
             </div>
             </form>
         </div>
